@@ -1,4 +1,53 @@
 
 public class QuickSort {
-
+	
+	int[] array;
+	
+	int[] quickSort(int[] arr)
+	{
+		array=arr;
+		qs(0,arr.length-1);
+		return array;
+	}
+	
+	void qs(int l, int h)
+	{
+		if(l<h)
+		{
+			int j=partition(l,h);
+			qs(l,j);
+			qs(j+1,h);
+		}
+	}
+	
+	int partition(int l,int h)
+	{
+		int pivot= array[l];
+		int i=l,j=h;
+		while(i<j)
+		{
+		do
+		{
+			i++;
+		}while(array[i]<=pivot);
+		
+		do
+		{
+			j--;
+		}while(array[j]>pivot);
+		if(i<j) swap(i,j);
+		}
+		swap(l,j);
+		
+		
+		return j;
+		
+	}
+	
+	void swap(int i, int j) 
+	{
+		int temp= array[i];
+		array[i]=array[j];
+		array[j]=temp;
+	}
 }
