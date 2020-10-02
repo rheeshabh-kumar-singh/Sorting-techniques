@@ -6,7 +6,7 @@ public class QuickSort {
 	int[] quickSort(int[] arr)
 	{
 		array=arr;
-		qs(0,arr.length-1);
+		qs(0,array.length-1);
 		return array;
 	}
 	
@@ -29,7 +29,7 @@ public class QuickSort {
 		do
 		{
 			i++;
-		}while(array[i]<=pivot);
+		}while(array[i]<=pivot && i<j);
 		
 		do
 		{
@@ -38,7 +38,11 @@ public class QuickSort {
 		if(i<j) swap(i,j);
 		}
 		swap(l,j);
-		
+		for(int k=0;k<7;k++)
+		{
+			System.out.print(array[k]);
+		}
+		System.out.println();
 		
 		return j;
 		
