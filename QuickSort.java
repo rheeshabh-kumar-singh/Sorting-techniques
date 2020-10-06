@@ -1,52 +1,50 @@
 
 public class QuickSort {
+
 	
-	int[] array;
+
 	
-	int[] quickSort(int[] arr)
+	int array[];
+	
+	void quickSort(int[] a,int p,int r)
 	{
-		array=arr;
-		qs(0,array.length-1);
-		return array;
-	}
-	
-	void qs(int l, int h)
-	{
-		if(l<h)
+		array=a;
+		if(p<r)
 		{
-			int j=partition(l,h);
-			qs(l,j);
-			qs(j+1,h);
+			int q=partition(p,r);
+			quickSort(array,p,q-1);
+			quickSort(array,q+1,r);
 		}
-	}
-	
-	int partition(int l,int h)
-	{
-		int pivot= array[l];
-		int i=l,j=h;
-		while(i<j)
+		for(int i=0;i<array.length;i++)
 		{
-		do
-		{
-			i++;
-		}while(array[i]<=pivot && i<j);
-		
-		do
-		{
-			j--;
-		}while(array[j]>pivot);
-		if(i<j) swap(i,j);
-		}
-		swap(l,j);
-		for(int k=0;k<7;k++)
-		{
-			System.out.print(array[k]);
+			System.out.print("{"+array[i]+"}");
+			
 		}
 		System.out.println();
-		
-		return j;
+	}
+	
+	
+	int partition(int p,int r)
+	{
+		int x=array[r];
+		int i= p-1;
+		for(int j=p;j<r;j++)
+		{
+			if(array[j]<=x)
+			{
+				i=i+1;
+				swap(i,j);
+			}
+		}
+		swap(i+1,r);
+		return i+1;
 		
 	}
+	
+	
+	
+	
+	
 	
 	void swap(int i, int j) 
 	{
