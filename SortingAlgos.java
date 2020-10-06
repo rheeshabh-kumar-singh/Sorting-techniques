@@ -10,11 +10,15 @@ public class SortingAlgos {
 		}
 		System.out.println();
 		QuickSort quicksort=new QuickSort();
-		arr= quicksort.quickSort(arr);
+		quicksort.quickSort(arr, 0, arr.length-1);
 		for(int i=0;i<7;i++)
 		{
 			System.out.print(arr[i]);
 		}
+		
+		int[] arr2= new int[] {2,4,-1,6,-9,-65,34,99,23,100};
+		MergeSort ms= new MergeSort();
+		ms.mergeSort(arr2, 0, 9);
 		
 	}
 
